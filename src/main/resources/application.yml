@@ -1,0 +1,4 @@
+spring:
+  application:
+    name: projectEop
+brokerUrl: tcp://localhost:61616

@@ -1,32 +1,25 @@
 package org.example.projecteop;
 
-import jakarta.jms.*;
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.activemq.command.ActiveMQTextMessage;
+import jakarta.jms.JMSException;
+import jakarta.jms.TextMessage;
+import org.example.projecteop.config.ActiveMqConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jms.core.JmsTemplate;
 
 public class ConsumerTest {
     public static void main(String[] args) throws JMSException {
 
+        AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(ActiveMqConfig.class);
 
-        ActiveMQConnectionFactory connectionFactory =
-                new ActiveMQConnectionFactory("tcp://localhost:61616");
 
-        Connection con = connectionFactory.createConnection();
+        JmsTemplate jms = ctx.getBean(JmsTemplate.class);
 
-        con.start();
+//        jms.convertAndSend("pdp","salom pdp talabalari!");
 
-        Session session = con.createSession();
-//        MessageConsumer consumer = session.createConsumer(new ActiveMQQueue("pdp"));
-//
-//        TextMessage receive =(TextMessage) consumer.receive();
-//
-//        System.out.println("receive.getText() = " + receive.getText());
+        TextMessage receive = (TextMessage) jms.receive("pdp");
 
-        Queue queue = session.createQueue("pdp");
-        MessageProducer producer = session.createProducer(queue);
+        System.out.println("receive.getText() = " + receive.getText());
 
-        TextMessage t1=new ActiveMQTextMessage();
-        t1.setText("Hello PDP");
-        producer.send(t1);
+
     }
 }
