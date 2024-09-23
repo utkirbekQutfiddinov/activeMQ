@@ -1,4 +1,7 @@
 spring:
   application:
     name: projectEop
-brokerUrl: tcp://localhost:61616
+  activemq:
+    broker-url: tcp://localhost:61616
+    user: admin
+    password: 123
