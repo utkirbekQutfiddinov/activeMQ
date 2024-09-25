@@ -1,8 +1,5 @@
 package org.example.projecteop.controller;
 
-import jakarta.jms.JMSException;
-import jakarta.jms.TextMessage;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

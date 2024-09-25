@@ -1,8 +1,6 @@
 package org.example.projecteop.controller;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.annotation.JmsListener;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @Configuration
