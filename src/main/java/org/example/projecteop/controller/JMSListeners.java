@@ -9,16 +9,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 public class JMSListeners {
 
-    @Async
-    @JmsListener(destination = "admin")
-    public void askjhbdashb(String message) {
-        System.out.println("message: " + message + " " + Thread.currentThread().getName());
-    }
-
-    @Async
-    @JmsListener(destination = "admin")
-    public void asasasa(String message) {
-        System.out.println("Received a new message: " + message + " " + Thread.currentThread().getName());
-    }
+//    @Async
+//    @JmsListener(destination = "admin")
+//    public void askjhbdashb(String message) {
+//        System.out.println("message: " + message + " " + Thread.currentThread().getName());
+//    }
+//
+//    @Async
+//    @JmsListener(destination = "admin")
+//    public void asasasa(String message) {
+//        System.out.println("Received a new message: " + message + " " + Thread.currentThread().getName());
+//    }
 
 }
